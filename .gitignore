@@ -1,0 +1,6 @@
+*.iml
+log.html
+output.xml
+report.html
+.idea
+./pabot_results
