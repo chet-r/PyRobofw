@@ -51,6 +51,7 @@ Click on Filter button
 
 Input the filter 'Where'
     Click Element    ${FILTER_INPUT}
+    Sleep            1
     Input Text       ${FILTER_INPUT}    Status
     Click Element    ${FILTER_STATUS_OPTION}
 
@@ -87,8 +88,8 @@ Upload a file from disk
     Wait Until Element Is Visible   ${FILE_GROUP_DROPDOWN}
     Click Element                   ${FILE_GROUP_DROPDOWN}
     Press Keys                      None   RETURN
-    Log To Console                  ${EXECDIR}\\resources\\err15.png
-    Choose File                     ${FILE_UPLOAD_INPUT}    ${EXECDIR}\\resources\\err15.png
+    Log To Console                  ${EXECDIR}/resources/err15.png
+    Choose File                     ${FILE_UPLOAD_INPUT}    ${EXECDIR}/resources/err15.png
     Click Element                   ${FILE_UPLOAD_BUTTON}
 
 Wait for file upload success message
