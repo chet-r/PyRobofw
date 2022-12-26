@@ -36,6 +36,7 @@ ${CONVERSATION_DESC}        xpath://div[@role='document']//textarea[@id='newConv
 ${ADD_PEOPLE_CONVO}         xpath:(//div[@role='document'])[2]//button[contains(text(),'Done')]
 ${CONVERSATION_CREATE}      xpath://div[@role='document']//button[contains(text(),'Create')]
 ${UPLOAD_BUTTON}            xpath://button[@data-cy='upload']
+${FILE_GROUP}               xpath://div[@role='document']//div[contains(text(),'Select...')]
 ${FILE_GROUP_DROPDOWN}      xpath://div[@role='document']//div[@id='group']
 ${FILE_UPLOAD_INPUT}        xpath://input[@type='file']
 ${FILE_UPLOAD_BUTTON}       xpath://div[@role='document']//button[contains(text(),'Upload')]
@@ -80,6 +81,11 @@ Click on the 'All files' tab in the header
     Wait Until Element Is Visible    ${ALL_FILES_TAB}
     Click Element                    ${ALL_FILES_TAB}
 
+Click on the 'General Private Files' & select 'General Private Files'
+    Wait Until Element Is Visible    ${FILE_GROUP}
+    Click Element                    ${FILE_GROUP}
+    Press Keys                       None   RETURN
+
 Click on the 'Upload' button
     Wait Until Element Is Visible    ${UPLOAD_BUTTON}
     Click Element                    ${UPLOAD_BUTTON}
@@ -98,9 +104,11 @@ Wait for file upload success message
 Click on the show tabs option
     Wait Until Element Is Visible        ${SHOW_TABS_OPTION}
     Mouse Over                           ${SHOW_TABS_OPTION}
+    Sleep                                3
 
 Uncheck the Board option
-    Execute Javascript                   document.getElementsByTagName('input')[5].click()
+    Mouse Over                           ${BOARD_TAB}
+    Execute Javascript                   for (var i = 0; i < document.getElementsByTagName('input').length; i++){if(document.getElementsByTagName('input')[i].defaultValue==="TaskBoard"){document.getElementsByTagName('input')[i].click()}}
 
 Verify that the board tab is removed
     Wait Until Element Is Not Visible    ${BOARD_TAB}

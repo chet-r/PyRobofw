@@ -24,6 +24,7 @@ Validate the file upload feature in project page
     Click on a project in project page
     Click on the 'All files' tab in the header
     Click on the 'Upload' button
+    Click on the 'General Private Files' & select 'General Private Files'
     Upload a file from disk
     Wait for file upload success message
 
